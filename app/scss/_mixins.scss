@@ -1,0 +1,30 @@
+//BreakPoints
+
+@media (min-width: 102.4em) {
+}
+
+//creating a map for bp
+//640px, 1024px, 1400px
+$breakpoints-up: (
+  "medium": "64em",
+  "large": "102.4em",
+  "xlarge": "140em",
+);
+//639px, 1023px, 1399px
+$breakpoints-down: (
+  "small": "63.9em",
+  "medium": "102.3em",
+  "large": "139.9em",
+);
+
+@mixin breakpoints-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoints-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
